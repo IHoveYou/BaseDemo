@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/bgs" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#aa000000" />
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:text="1024程序员节"
+            android:textColor="#ffffff"
+            android:textSize="36dp" />
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="140dp"
+            android:text="我们的目标"
+            android:textColor="#ffffff"
+            android:textSize="36dp" />
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="190dp"
+            android:layout_marginRight="15dp"
+            android:text="星辰大海"
+            android:textColor="#ffffff"
+            android:textSize="36dp" />
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/tv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="270dp"
+            android:layout_marginRight="15dp"
+            android:text="通明有你一路相伴"
+            android:textColor="#ffffff"
+            android:textSize="36dp" />
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/tv5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:layout_marginRight="15dp"
+            android:text="今晚不加班偶"
+            android:textColor="#ffffff"
+            android:textSize="24dp" />
+
+
+        <ImageView
+            android:id="@+id/iv"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/logo"
+            />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <com.example.basedemo.widget.RedRainView
+        android:id="@+id/redRain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
+
+
+    </RelativeLayout>
+</layout>
