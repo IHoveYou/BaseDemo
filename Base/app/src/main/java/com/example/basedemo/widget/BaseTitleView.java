@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,7 +20,7 @@ import com.example.basedemo.databinding.BaseTitleBinding;
  * 上有天，下有地，中间站着你自己，做一天人，尽一天人事儿
  * 人生是一个永不停息的工厂，那里没有懒人的位置。工作吧！创造吧！
  */
-public class BaseTitleView extends FrameLayout {
+public class BaseTitleView extends FrameLayout implements View.OnClickListener {
     BaseTitleBinding mBinding;
 
     public BaseTitleView(@NonNull Context context) {
@@ -54,6 +53,12 @@ public class BaseTitleView extends FrameLayout {
                 }
             }
         });
+        mBinding.tvLeftText.setOnClickListener(this);
+        mBinding.tvRightText.setOnClickListener(this);
+        mBinding.tvTitle.setOnClickListener(this);
+        mBinding.ivLeft.setOnClickListener(this);
+        mBinding.ivRight.setOnClickListener(this);
+
     }
 
 
@@ -66,7 +71,7 @@ public class BaseTitleView extends FrameLayout {
     }
 
 
-    public void setTitleText(String text){
+    public void setTitleText(String text) {
         mBinding.tvTitle.setText(text);
     }
 
@@ -82,6 +87,13 @@ public class BaseTitleView extends FrameLayout {
         mBinding.tvRightText.setTextColor(getResources().getColor(color));
     }
 
+    public void setLeftText(String text) {
+        mBinding.tvLeftText.setText(text);
+    }
+
+    public void setRightText(String text) {
+        mBinding.tvRightText.setText(text);
+    }
 
     public void setLeftImage(int res) {
         mBinding.ivLeft.setImageResource(res);
@@ -92,4 +104,16 @@ public class BaseTitleView extends FrameLayout {
     }
 
 
+    OnClickListener onClickListener;
+
+    @Override
+    public void setOnClickListener(@Nullable OnClickListener l) {
+        onClickListener = l;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (onClickListener != null)
+            onClickListener.onClick(view);
+    }
 }
