@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.basedemo.R;
-import com.example.basedemo.base.BaseApplication;
+import com.example.basedemo.BaseApplication;
 
 
 /**

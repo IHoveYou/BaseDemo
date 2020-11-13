@@ -3,10 +3,16 @@ package com.example.basedemo;
 import android.app.Application;
 import android.content.Context;
 import android.content.IntentFilter;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.util.Log;
 
 import com.example.basedemo.receiver.ConnectionChangeReceiver;
 import com.example.basedemo.utils.ANRWatchDog;
 import com.example.basedemo.utils.CrashHandlerUtil;
+import com.example.basedemo.widget.textview.OneTextView;
+import com.example.basedemo.widget.textview.ThreeTextView;
+import com.example.basedemo.widget.textview.TwoTextView;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
@@ -34,7 +40,10 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        application = (BaseApplication) getApplicationContext();
+        application = this;
+
+//        initTextView();
+
         new ANRWatchDog().start();
         /**
          *解决未捕获异常引起的崩溃
@@ -68,6 +77,50 @@ public class BaseApplication extends Application {
                 return new ClassicsFooter(context).setDrawableSize(20);
             }
         });
+    }
+
+
+    public void initTextView(int[] size, int[] color) {
+        OneTextView.setSize(size[0]);
+        TwoTextView.setSize(size[1]);
+        ThreeTextView.setSize(size[2]);
+
+        OneTextView.setColor(color[0]);
+        TwoTextView.setColor(color[1]);
+        ThreeTextView.setColor(color[2]);
+
+
+    }
+
+    /**
+     * 返回当前程序版本号
+     */
+    public double getAppVersionCode() {
+        double versioncode = 0;
+        try {
+            PackageManager pm = getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(getPackageName(), 0);
+            // versionName = pi.versionName;
+            versioncode = pi.versionCode;
+        } catch (Exception e) {
+            Log.e("VersionInfo", "Exception", e);
+        }
+        return versioncode;
+    }
+
+    /**
+     * 返回当前程序版本名
+     */
+    public  String getAppVersionName() {
+        String versionName = null;
+        try {
+            PackageManager pm = getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(getPackageName(), 0);
+            versionName = pi.versionName;
+        } catch (Exception e) {
+            Log.e("VersionInfo", "Exception", e);
+        }
+        return versionName;
     }
 
     @Override

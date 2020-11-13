@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.basedemo.base.BaseApplication;
+import com.example.basedemo.BaseApplication;
 import com.google.gson.Gson;
 
 import java.lang.reflect.Type;

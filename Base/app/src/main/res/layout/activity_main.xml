@@ -9,19 +9,35 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <com.example.basedemo.widget.textview.OneTextView
-            android:id="@+id/tv_one"
-            android:layout_width="100dp"
-            android:gravity="center"
-            android:layout_height="100dp"
-            android:text="普通弹框" />
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
 
-        <com.example.basedemo.widget.textview.OneTextView
-            android:id="@+id/tv_two"
-            android:gravity="center"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="单按钮弹框" />
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <com.example.basedemo.widget.textview.OneTextView
+                    android:id="@+id/tv_one"
+                    android:layout_width="100dp"
+                    android:gravity="center"
+                    android:layout_height="100dp"
+                    android:text="普通弹框" />
+
+                <com.example.basedemo.widget.textview.OneTextView
+                    android:id="@+id/tv_two"
+                    android:gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="单按钮弹框" />
+            </LinearLayout>
+
+
+
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 
     </LinearLayout>
 </layout>
