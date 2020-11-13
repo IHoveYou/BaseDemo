@@ -1,9 +1,8 @@
-package com.example.basedemo.widget;
+package com.example.basedemo.utils;
 
 import android.os.Handler;
 
 import java.lang.ref.WeakReference;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 

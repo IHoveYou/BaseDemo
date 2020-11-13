@@ -9,6 +9,8 @@
     <color name="line_color">#f6f6f7</color>
     <color name="black">#333333</color>
     <color name="gray">#888888</color>
+    <color name="white">#ffffff</color>
+    <color name="gray1">#444444</color>
 
 
 </resources>

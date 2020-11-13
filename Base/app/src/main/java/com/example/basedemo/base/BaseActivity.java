@@ -13,6 +13,7 @@ import androidx.databinding.ViewDataBinding;
 
 import com.example.basedemo.R;
 import com.example.basedemo.utils.StatusBarUtil;
+import com.example.basedemo.utils.ToastUtils;
 import com.example.basedemo.widget.BaseTitleView;
 
 /**
@@ -50,8 +51,13 @@ public abstract class BaseActivity<B extends ViewDataBinding, VM extends BaseVM>
     }
 
     private void init() {
-        initView();
-        initData();
+        try {
+            initView();
+            initData();
+        } catch (Exception e) {
+            ToastUtils.showMessage("程序出现错误,请刷新重试");
+            finish();
+        }
     }
 
     /**

@@ -65,4 +65,9 @@ public abstract class BaseDialog<B extends ViewDataBinding, VM extends BaseVM> e
     public void refresh() {
 
     }
+
+    public String getString(String key, String def) {
+        return getArguments().getString(key, def);
+
+    }
 }
