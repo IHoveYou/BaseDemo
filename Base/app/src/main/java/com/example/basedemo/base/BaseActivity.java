@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 
 import com.example.basedemo.R;
+import com.example.basedemo.utils.AppUtils;
 import com.example.basedemo.utils.StatusBarUtil;
 import com.example.basedemo.utils.ToastUtils;
 import com.example.basedemo.widget.BaseTitleView;
@@ -36,7 +37,7 @@ public abstract class BaseActivity<B extends ViewDataBinding, VM extends BaseVM>
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.base_activity);
-        setStatusBar();
+        setStatusBar(R.color.white);
         rootView = findViewById(R.id.rootView);
         flContext = findViewById(R.id.fl_context);
         fltitle = findViewById(R.id.fl_title);
@@ -63,12 +64,13 @@ public abstract class BaseActivity<B extends ViewDataBinding, VM extends BaseVM>
     /**
      * 子类想改变其他颜色就重写这个方法
      */
-    protected void setStatusBar() {
-        StatusBarUtil.setColor(this, getResources().getColor(R.color.black));
+    protected void setStatusBar(int color) {
+        StatusBarUtil.setColor(this, getResources().getColor(color));
     }
 
     //沉浸式
     protected void hideStatusBar() {
+        fltitle.setPadding(0, AppUtils.getStatusBarHeight(this),0,0);
         StatusBarUtil.setTranslucentForImageViewInFragment(this, null);
     }
 

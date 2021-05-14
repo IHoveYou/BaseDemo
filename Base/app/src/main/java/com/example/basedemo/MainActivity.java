@@ -24,9 +24,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, BaseVM> {
 
     @Override
     public void initView() {
-        setTitle("节日快乐");//设置标题
-        hideStatusBar();//浸入式
-        hiddenTitle();//隐藏标题
+//        setTitle("节日快乐");//设置标题
+//        hideStatusBar();//浸入式
+//        hiddenTitle();//隐藏标题
 
         mBinding.tvOne.setOnClickListener(view -> DialogUtils.show(getSupportFragmentManager(), "测试标题", "确定", new BaseDialogCallBack() {
             @Override
