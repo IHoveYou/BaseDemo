@@ -19,8 +19,8 @@ import java.util.List;
  */
 public abstract class BaseAdapter<T, B extends ViewDataBinding> extends RecyclerView.Adapter<ViewHolder> {
 
-    Context mContext;
-    List<T> mList;
+    public Context mContext;
+    public List<T> mList;
     int layoutId = 0;
 
     OnItemClickListener onItemClickListener = new OnItemClickListener<T, B>() {

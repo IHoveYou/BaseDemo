@@ -2,7 +2,6 @@ package com.example.basedemo.widget.bulletinView;
 
 import android.content.Context;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +9,10 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
+
+import androidx.annotation.Nullable;
+
+import com.example.basedemo.utils.TimeUtils;
 
 import java.util.List;
 
@@ -243,21 +246,30 @@ public class BulletinView extends LinearLayout {
             isStop = false;
             init();
             if (!initData) {
-                mHandler.postDelayed(r, 2000);
+//                mHandler.postDelayed(r, 2000);
+                TimeUtils.newInstance().setCallBack(onTimeCallListent);
             }
             initData = true;
         }
     }
 
+    TimeUtils.OnTimeCallListent onTimeCallListent=new TimeUtils.OnTimeCallListent() {
+        @Override
+        public void onTime(long time) {
+            if (!isStop) {
+                init();
+                viewType++;
+            }
+        }
+    };
+
+
     public void onStop() {//停止滚动
         isStop = true;
-        mHandler.removeCallbacks(r);
     }
 
     public void onStart() {//开始滚动
         isStop = false;
-        if (adapter != null)
-            mHandler.postDelayed(r, 500);
     }
 
 

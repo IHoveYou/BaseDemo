@@ -2,12 +2,17 @@ package com.example.basedemo;
 
 import android.view.View;
 
+import androidx.recyclerview.widget.GridLayoutManager;
+
 import com.example.basedemo.base.BaseActivity;
 import com.example.basedemo.base.BaseVM;
 import com.example.basedemo.databinding.ActivityMainBinding;
 import com.example.basedemo.minterface.BaseDialogCallBack;
 import com.example.basedemo.minterface.SingleClickListener;
+
 import com.example.basedemo.utils.DialogUtils;
+
+import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, BaseVM> {
 
@@ -51,7 +56,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, BaseVM> {
 
     @Override
     public void initData() {
-
 
     }
 

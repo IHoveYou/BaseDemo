@@ -3,7 +3,10 @@ package com.example.basedemo.utils;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -120,4 +123,45 @@ public class UIUtil {
         recyclerView.setNestedScrollingEnabled(false);
 //        android:descendantFocusability="blocksDescendants"
     }
+
+
+    //屏幕分辨率
+    public static DisplayMetrics getDisplayMetrics(Context context) {
+        return context.getResources().getDisplayMetrics();
+    }
+
+    //屏幕宽度
+    public static int getScreenWidth(Context context) {
+        return getDisplayMetrics(context).widthPixels;
+    }
+
+    //屏幕高度
+    public static int getScreenHeight(Context context) {
+        return getDisplayMetrics(context).heightPixels;
+    }
+
+
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+    public static int dip2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
+
+    public static void setView(View v, float wide, float height) {
+        Context context = v.getContext();
+        int screenWidth = getScreenWidth(context);
+
+        double key = screenWidth * 1.00 / dip2px(context, 375);
+
+        int mWide = (int) (key * dip2px(context, wide));
+        int mHeight = (int) (key * dip2px(context, height));
+
+        ViewGroup.LayoutParams layoutParams = v.getLayoutParams();
+        layoutParams.width = mWide;
+        layoutParams.height = mHeight;
+        v.setLayoutParams(layoutParams);
+    }
+
 }
